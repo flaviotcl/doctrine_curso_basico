@@ -1,0 +1,65 @@
+______________________________________________________________________________________________________________________________________
+
+************** DOCTRINE Instalação e Configuração ********************
+ 
+    Criado por @flaviotcl Em: 26-06-2020
+
+**********************************************************************
+_________________________________________________________________________________________________________________________________________
+
+
+Obs: É aconselhável que se possua pelo menos o PHP 5.5.9 instalado p/ trabalhar com Frameworks Laravel , Simphony 2,3 , ZendFramework, Doctrine.
+
+1) Executar no terminal:
+
+        sudo apt-get install composer
+
+2) Com o composer instalado de forma global no seu S.O. executar o seguite comando:
+    
+        composer  require doctrine/orm:2.5.*
+
+   Resultado: Irá criar o arquivo composer.json, bem como resolver todas as dependências para o bom funcionamento.
+
+3) Criação da pasta principal do Projeto.
+
+   3.1) Criação das pastas public, templates, src. 
+   3.2) Configuração do Autoload no arquivo composer.json .
+   3.3) Execução do comando abaixo no terminal:
+
+            composer dumpautoload
+
+4) Configuração do Doctrine Console               
+
+   4.1) Criação do arquivo cli-config.php na pasta raiz do Projeto e apontar p/ o arq. de config. da nossa aplicação dentro do diretório /src/doctrine.php .
+        
+        Obs: Dentro do arq. /src/doctrine.php constam as variáveis de configuração de Banco de dados, $paths das Entidades, modo de desenvolvimento, sinaliza p/ Doctrine que será utilizado anotation p/ configurações internas dentro do framework Doctrine.
+
+
+5) Testando o console Doctrine:
+
+    5.1) Execute o comando abaixo:
+
+            vendor/bin/doctrine
+
+         Resultado:
+            
+            Exibição de Lista de comandos do Doctrine Console.
+
+6) Validando o Mapeamento Objeto Relacional
+
+
+    6.1) Abaixo segue o Comando p/ realizar validação do mapeamento objeto relacional.Torna-se crucial a sincronização do BD c/ as Entidades quando for realizada qualquer alteração na programação que impacte BD, como a inserção de um novo campo de formulário por exemplo.
+
+         No Doctrine console digite:
+
+            vendor/bin/doctrine orm:validate-schema
+
+         Resultado:
+
+            [Mapping]  OK - The mapping files are correct. // É de extrema importância que essa linha retorne na cor verde , com um OK.
+            [Database] OK - The database schema is in sync with the mapping files.
+
+_________________________________________________________________________________________________________________________________________
+
+
+
