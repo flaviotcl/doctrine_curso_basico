@@ -1,12 +1,12 @@
 <?php
 
 
-use doctrine\ORM\Tools\Setup;
-use EntityManager\ORM\EntityManager;
+use Doctrine\ORM\Tools\Setup;
+use Doctrine\ORM\EntityManager;
 
 
 $paths = [
-    __DIR__.'/entity'
+    __DIR__.'/Entity'
 ];
 
 $isDevMode = true;
