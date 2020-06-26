@@ -59,6 +59,19 @@ Obs: É aconselhável que se possua pelo menos o PHP 5.5.9 instalado p/ trabalha
             [Mapping]  OK - The mapping files are correct. // É de extrema importância que essa linha retorne na cor verde , com um OK.
             [Database] OK - The database schema is in sync with the mapping files.
 
+7) Mapeamento Objeto Relacional na Prática - Gerando a Estrutura de tabelas.
+    
+   Ao executar o comando abaixo será criada toda estrutura de tabelas da Aplicação a partir da implementação do mapeamento objeto relacional realizado na Entity, em /src/Entity/Classe_Qualquer.php
+     
+           vendor/bin/doctrine orm:schema-tool:create
+
+   Posteriormente caso realize alguma alteração na Aplicação que deverá ser refletida na base de dados, se faz necessário a sincronização Objeto/BD.
+
+           vendor/bin/doctrine orm:schema-tool:update --dump-sql       // Este comando retorna qual o SQL será executado no BD.
+
+
+           vendor/bin/doctrine orm:schema-tool:update --force          // Este comando executa a query de atualização no BD, concluindo a Sincronização.
+
 _________________________________________________________________________________________________________________________________________
 
 
